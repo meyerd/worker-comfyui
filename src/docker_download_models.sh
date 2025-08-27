@@ -400,7 +400,7 @@ fi
 echo "Renaming loras downloaded as zip files to safetensors files"
 cd $LORAS_DIR
 for file in *.zip; do
-    mv "$file" "${file%.zip}.safetensors"
+    mv "$file" "${file%.zip}.safetensors" || true
 done
 
 # # Start ComfyUI
