@@ -40,6 +40,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vim \
     build-essential \
     gcc \
+    bash \
     && ln -sf /usr/bin/python3.12 /usr/bin/python \
     && ln -sf /usr/bin/pip3 /usr/bin/pip
 
