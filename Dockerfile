@@ -160,7 +160,7 @@ RUN for repo in \
 COPY 4xLSDIR.pth /4xLSDIR.pth
 
 ARG HUGGINGFACE_ACCESS_TOKEN
-ARG CIVITAI_ACCESS_TOKEN
+ARG CIVITAI_TOKEN
 
 # Set default model type if none is provided no spaces around commas
 # has to be a guarded list ",listwithoutspace,"
@@ -213,4 +213,4 @@ ARG CIVITAI_TOKEN
 # Copy models from stage 2 to the final image
 COPY --from=downloader /comfyui/models /comfyui/models
 
-RUN /docker_download_models.sh
+RUN /bin/bash /docker_download_models.sh
