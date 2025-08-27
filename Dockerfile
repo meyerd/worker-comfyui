@@ -214,4 +214,4 @@ ARG CIVITAI_TOKEN
 # Copy models from stage 2 to the final image
 COPY --from=downloader /comfyui/models /comfyui/models
 
-RUN /bin/bash /docker_download_models.sh
+RUN bash /docker_download_models.sh
