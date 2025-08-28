@@ -143,7 +143,6 @@ RUN for repo in \
     https://github.com/ClownsharkBatwing/RES4LYF \
     https://github.com/welltop-cn/ComfyUI-TeaCache.git \
     https://github.com/Fannovel16/ComfyUI-Frame-Interpolation.git \
-    https://github.com/Jonseed/ComfyUI-Detail-Daemon.git \
     https://github.com/kijai/ComfyUI-WanVideoWrapper.git \
     https://github.com/chflame163/ComfyUI_LayerStyle_Advance.git \
     https://github.com/BadCafeCode/masquerade-nodes-comfyui.git \
@@ -169,12 +168,12 @@ RUN for repo in \
         fi; \
     done
 
-# sage attention
-RUN cd /tmp/ && git clone https://github.com/thu-ml/SageAttention.git && \
-  cd SageAttention && \
-  uv run setup.py install && \
-  cd .. && \
-  rm -rf SageAttention
+# # sage attention
+# RUN cd /tmp/ && git clone https://github.com/thu-ml/SageAttention.git && \
+#   cd SageAttention && \
+#   uv run setup.py install && \
+#   cd .. && \
+#   rm -rf SageAttention
 
 # clean pip cache
 
