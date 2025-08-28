@@ -1,6 +1,15 @@
 services:
   comfyui-worker:
-    image: runpod/worker-comfyui:dev
+    image: worker-comfyui:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - HUGGINGFACE_ACCESS_TOKEN=${HUGGINGFACE_ACCESS_TOKEN}
+        - CIVITAI_TOKEN=${CIVITAI_TOKEN}
+        - LORAS_IDS_TO_DOWNLOAD=${LORAS_IDS_TO_DOWNLOAD}
+        - CHECKPOINT_IDS_TO_DOWNLOAD=${CHECKPOINT_IDS_TO_DOWNLOAD}
+        - MODEL_TYPE=${MODEL_TYPE}
     pull_policy: never
     deploy:
       resources:
@@ -11,6 +20,8 @@ services:
               capabilities: [gpu]
     environment:
       - SERVE_API_LOCALLY=true
+    env_file:
+      - .env
     ports:
       - "8000:8000"
       - "8188:8188"
