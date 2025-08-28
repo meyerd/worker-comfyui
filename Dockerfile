@@ -165,14 +165,14 @@ RUN for repo in \
             uv pip install -r "${CUSTOM_NODES_DIR}/$repo_dir/requirements.txt"; \
         fi; \
         if [ -f "${CUSTOM_NODES_DIR}/$repo_dir/install.py" ]; then \
-            uv python3 "${CUSTOM_NODES_DIR}/$repo_dir/install.py"; \
+            uv python "${CUSTOM_NODES_DIR}/$repo_dir/install.py"; \
         fi; \
     done
 
 # sage attention
 RUN cd /tmp/ && git clone https://github.com/thu-ml/SageAttention.git && \
   cd SageAttention && \
-  uv python3 setup.py install && \
+  uv python setup.py install && \
   cd .. && \
   rm -rf SageAttention
 
