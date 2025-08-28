@@ -1,4 +1,5 @@
 # Build argument for base image selection
+#ARG BASE_IMAGE=nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 ARG BASE_IMAGE=nvidia/cuda:12.8.1-cudnn-devel-ubuntu24.04
 
 # Stage 1: Base image with common dependencies
