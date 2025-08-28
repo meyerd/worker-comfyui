@@ -254,7 +254,7 @@ RUN echo "$MODEL_TYPE" | grep -q ",flux1-dev-fp8," && \
       wget -q -O models/checkpoints/flux1-dev-fp8.safetensors https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors || true
 
 RUN echo "${MODEL_TYPE}" | grep -q ",pulid," && \
-  /bin/bash /download_model.sh "https://huggingface.co/guozinan/PuLID/resolve/main/pulid_flux_v0.9.1.safetensors" "$PULID_DIR/pulid_flux_v0.9.1.safetensors"
+  /bin/bash /download_model.sh "https://huggingface.co/guozinan/PuLID/resolve/main/pulid_flux_v0.9.1.safetensors" "$PULID_DIR/pulid_flux_v0.9.1.safetensors" || true
 
 RUN echo "${MODEL_TYPE}}" | grep -q ",faceid," && \
   /bin/bash /download_model.sh "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors" "$IPADAPTER_DIR/ip-adapter-plus-face_sdxl_vit-h.safetensors" && \
@@ -264,24 +264,23 @@ RUN echo "${MODEL_TYPE}}" | grep -q ",faceid," && \
   /bin/bash /download_model.sh "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors" "$CLIPVISION_DIR/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors" "$CLIPVISION_DIR/CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sdxl_lora.safetensors" "$LORAS_DIR/ip-adapter-faceid-plusv2_sdxl_lora.safetensors" && \
-  /bin/bash /download_model.sh "https://huggingface.co/24xx/segm/resolve/main/face_yolov8m-seg_60.pt" "$COMFYUI_DIR/models/ultralytics/segm/face_yolov8m-seg_60.pt"
-
+  /bin/bash /download_model.sh "https://huggingface.co/24xx/segm/resolve/main/face_yolov8m-seg_60.pt" "$COMFYUI_DIR/models/ultralytics/segm/face_yolov8m-seg_60.pt" || true
 
 RUN echo "$MODEL_TYPE" | grep -q ",wan21_480p," && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_480p_14B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_i2v_480p_14B_bf16.safetensors"  && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_14B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_14B_bf16.safetensors" && \
-  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_1.3B_bf16.safetensors"
+  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_1.3B_bf16.safetensors" || true
 
 RUN echo "$MODEL_TYPE" | grep -q ",wan21_720p," && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_720p_14B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_i2v_720p_14B_bf16.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_14B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_14B_bf16.safetensors" && \
-  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_1.3B_bf16.safetensors"
+  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_1.3B_bf16.safetensors" || true
 
 RUN echo "$MODEL_TYPE" | grep -q ",vace," && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_1.3B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_1.3B_bf16.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_14B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.1_t2v_14B_bf16.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1-VACE_module_14B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/Wan2_1-VACE_module_14B_bf16.safetensors" && \
-  /bin/bash /download_model.sh "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1-VACE_module_1_3B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/Wan2_1-VACE_module_1_3B_bf16.safetensors"
+  /bin/bash /download_model.sh "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1-VACE_module_1_3B_bf16.safetensors" "$DIFFUSION_MODELS_DIR/Wan2_1-VACE_module_1_3B_bf16.safetensors" || true
 
 RUN echo "$MODEL_TYPE" | grep -q ",wan22," && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_high_noise_14B_fp16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.2_t2v_high_noise_14B_fp16.safetensors" && \
@@ -289,7 +288,7 @@ RUN echo "$MODEL_TYPE" | grep -q ",wan22," && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.2_i2v_high_noise_14B_fp16.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.2_i2v_low_noise_14B_fp16.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors" "$DIFFUSION_MODELS_DIR/wan2.2_ti2v_5B_fp16.safetensors" && \
-  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan2.2_vae.safetensors" "$VAE_DIR/wan2.2_vae.safetensors"
+  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan2.2_vae.safetensors" "$VAE_DIR/wan2.2_vae.safetensors" || true
 
 # shared stuff for wan/vace
 RUN echo "${MODEL_TYPE}" | grep -q "wan21|vace|wan22" && \
@@ -300,34 +299,31 @@ RUN echo "${MODEL_TYPE}" | grep -q "wan21|vace|wan22" && \
   /bin/bash /download_model.sh "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors" "$TEXT_ENCODERS_DIR/umt5-xxl-enc-bf16.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors" "$CLIP_VISION_DIR/clip_vision_h.safetensors" && \
   /bin/bash /download_model.sh "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors" "$VAE_DIR/Wan2_1_VAE_bf16.safetensors" && \
-  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors" "$VAE_DIR/wan_2.1_vae.safetensors"
+  /bin/bash /download_model.sh "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors" "$VAE_DIR/wan_2.1_vae.safetensors" || true
   
 RUN echo "${MODEL_TYPE}" | grep -q ",upscale_model," && \
   mv "/4xLSDIR.pth" "${UPSCALE_MODELS_DIR}/4xLSDIR.pth" && \
   /bin/bash /download_model.sh "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth" "$NETWORK_VOLUME/ComfyUI/models/upscale_models/4x_foolhardy_Remacri.pt" && \
-  /bin/bash /download_model.sh "https://huggingface.co/RafaG/models-ESRGAN/resolve/82caaaedb2d27e9f76472351828178b62995c2f1/4xFaceUpLDAT.pth" "${UPSCALE_MODELS_DIR}/4xFaceUpLDAT.pth"
+  /bin/bash /download_model.sh "https://huggingface.co/RafaG/models-ESRGAN/resolve/82caaaedb2d27e9f76472351828178b62995c2f1/4xFaceUpLDAT.pth" "${UPSCALE_MODELS_DIR}/4xFaceUpLDAT.pth" || true
 
-RUN echo "$MODEL_TYPE" | grep -q ",custom_chkpt_loras," && \
-  declare -A MODEL_CATEGORIES=( \
-      ["$COMFYUI_DIR/models/checkpoints"]="$CHECKPOINT_IDS_TO_DOWNLOAD" \
-      ["$COMFYUI_DIR/models/loras"]="$LORAS_IDS_TO_DOWNLOAD" \
-  ) ; \
-  for TARGET_DIR in "${!MODEL_CATEGORIES[@]}"; do \
-    mkdir -p "$TARGET_DIR" ; \
-    MODEL_IDS_STRING="${MODEL_CATEGORIES[$TARGET_DIR]}" ; \
-    # Skip if the value is the default placeholder
-    if [[ "x$MODEL_IDS_STRING" == x"" ]]; then \
-        echo "⏭️  Skipping downloads for $TARGET_DIR (default value detected)" ; \
-        continue ;\
-    fi ;\
-    IFS=',' read -ra MODEL_IDS <<< "$MODEL_IDS_STRING" ;\
-    for MODEL_ID in "${MODEL_IDS[@]}"; do \
+RUN echo "${MODEL_TYPE}" | grep -q ",custom_chkpt_loras," && \
+  /bin/bash -lc ' \
+    declare -A MODEL_CATEGORIES=( \
+      ["'"${COMFYUI_DIR}"'/models/checkpoints"]="'${CHECKPOINT_IDS_TO_DOWNLOAD:-}'" \
+      ["'"${COMFYUI_DIR}"'/models/loras"]="'${LORAS_IDS_TO_DOWNLOAD:-}'" \
+    ); \
+    for TARGET_DIR in "${!MODEL_CATEGORIES[@]}"; do \
+      mkdir -p "$TARGET_DIR" ; \
+      MODEL_IDS_STRING="${MODEL_CATEGORIES[$TARGET_DIR]}" ; \
+      IFS="," read -r -a MODEL_IDS <<< "$MODEL_IDS_STRING" ; \
+      for MODEL_ID in "${MODEL_IDS[@]}"; do \
+        [ -n "$MODEL_ID" ] || continue ; \
         sleep 1 ; \
-        echo "🚀 Scheduling download: $MODEL_ID to $TARGET_DIR" ; \
+        echo "Scheduling download: $MODEL_ID to $TARGET_DIR" ; \
         (cd "$TARGET_DIR" && download_with_aria.py -m "$MODEL_ID") ; \
-    done ; \
-  done 
-
+      done ; \
+    done \
+  ' || true
 
 # Stage 3: Final image
 FROM base AS final
