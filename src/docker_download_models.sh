@@ -228,8 +228,8 @@ while pgrep -x "aria2c" > /dev/null; do
     sleep 5  # Check every 5 seconds
 done
 
-CHECKPOINT_IDS_TO_DOWNLOAD="${CHECKPOINT_IDS_TO_DOWNLOAD}, 1927178"
-LORAS_IDS_TO_DOWNLOAD="${LORAS_IDS_TO_DOWNLOAD}, 2021249"
+# CHECKPOINT_IDS_TO_DOWNLOAD="${CHECKPOINT_IDS_TO_DOWNLOAD}"
+# LORAS_IDS_TO_DOWNLOAD="${LORAS_IDS_TO_DOWNLOAD}"
 
 declare -A MODEL_CATEGORIES=(
     ["$COMFYUI_DIR/models/checkpoints"]="$CHECKPOINT_IDS_TO_DOWNLOAD"
@@ -331,6 +331,8 @@ echo "Finished downloading models!"
 #         mv "$dir" "$WORKFLOW_DIR/"
 #     fi
 # done
+
+change_preview_method="false"
 
 if [ "$change_preview_method" == "true" ]; then
     echo "Updating default preview method..."

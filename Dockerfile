@@ -203,11 +203,18 @@ COPY 4xLSDIR.pth /4xLSDIR.pth
 
 ARG HUGGINGFACE_ACCESS_TOKEN
 ARG CIVITAI_TOKEN
+ARG LORAS_IDS_TO_DOWNLOAD
+ARG CHECKPOINT_IDS_TO_DOWNLOAD
 
 # Copy models from stage 2 to the final image
 COPY --from=downloader /comfyui/models /comfyui/models
 
 COPY src/docker_download_models.sh /docker_download_models.sh
 RUN chmod +x /docker_download_models.sh
+
+ENV CIVITAI_TOKEN=${CIVITAI_TOKEN}
+ENV HUGGINGFACE_ACCESS_TOKEN=${HUGGINGFACE_ACCESS_TOKEN}
+ENV LORAS_IDS_TO_DOWNLOAD=${LORAS_IDS_TO_DOWNLOAD}
+ENV CHECKPOINT_IDS_TO_DOWNLOAD=${CHECKPOINT_IDS_TO_DOWNLOAD}
 
 RUN /bin/bash /docker_download_models.sh
